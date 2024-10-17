@@ -1,17 +1,11 @@
 import React from "react";
-import { Route, Navigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import { useGlobalContext } from "../context";
 
-const PrivateRoute = ({ children, ...rest }) => {
+const PrivateRoute = ({ children }) => {
   const { user } = useGlobalContext();
-  return (
-    <Route
-      {...rest}
-      render={() => {
-        return user ? children : <Navigate to="/" />;
-      }}
-    ></Route>
-  );
+  // If user exists, render children, otherwise navigate to login page
+  return user ? children : <Navigate to="/" />;
 };
 
 export default PrivateRoute;
