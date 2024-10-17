@@ -26,7 +26,7 @@ const AppProvider = ({ children }) => {
 
   const logoutUser = async () => {
     try {
-      await axios.get("http://localhost:5000/api/v1/auth/logout"); // Update the URL
+      await axios.get("/api/v1/auth/logout");
       removeUser();
     } catch (error) {
       console.log(error);
