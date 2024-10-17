@@ -1,15 +1,15 @@
-import { Link } from 'react-router-dom';
-import styled from 'styled-components';
-import main from '../assets/main.svg';
-import { Redirect } from 'react-router-dom';
-import { useGlobalContext } from '../context';
+import { Link, Navigate } from "react-router-dom";
+import styled from "styled-components";
+import main from "../assets/main.svg";
+import { useGlobalContext } from "../context";
+
 function Home() {
   const { user } = useGlobalContext();
   return (
     <>
-      {user && <Redirect to='/dashboard' />}
-      <Wrapper className='page'>
-        <div className='info'>
+      {user && <Navigate to="/dashboard" />}
+      <Wrapper className="page">
+        <div className="info">
           <h2>
             <span>Auth</span>
             Workflow
@@ -25,14 +25,14 @@ function Home() {
             kickstarter, next level la croix butcher lomo.
           </p>
 
-          <Link to='/login' className='btn'>
+          <Link to="/login" className="btn">
             Login
           </Link>
-          <Link to='/register' className='btn'>
+          <Link to="/register" className="btn">
             Register
           </Link>
         </div>
-        <img src={main} alt='job hunt' className='img main-img' />
+        <img src={main} alt="job hunt" className="img main-img" />
       </Wrapper>
     </>
   );

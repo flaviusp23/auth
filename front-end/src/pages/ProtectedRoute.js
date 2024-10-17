@@ -1,7 +1,6 @@
-import React from 'react';
-import { Route, Redirect } from 'react-router-dom';
-// import { useUserContext } from '../context/user_context'
-import { useGlobalContext } from '../context';
+import React from "react";
+import { Route, Navigate } from "react-router-dom";
+import { useGlobalContext } from "../context";
 
 const PrivateRoute = ({ children, ...rest }) => {
   const { user } = useGlobalContext();
@@ -9,9 +8,10 @@ const PrivateRoute = ({ children, ...rest }) => {
     <Route
       {...rest}
       render={() => {
-        return user ? children : <Redirect to='/'></Redirect>;
+        return user ? children : <Navigate to="/" />;
       }}
     ></Route>
   );
 };
+
 export default PrivateRoute;
